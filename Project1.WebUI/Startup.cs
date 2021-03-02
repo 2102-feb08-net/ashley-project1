@@ -46,6 +46,8 @@ namespace Project1.WebUI
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthorization();
