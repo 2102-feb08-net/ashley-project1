@@ -28,20 +28,20 @@
                 <div class="form-group col-md-6">
                     <label for="product">Product</label>
                     <select class="form-control" name="product" id="product">
-                        <option value="mocking"></option>
-                        <option value="mocking">To Kill a Mockingbird - $10.99</option>
-                        <option value="mocking">Pride and Prejudice - $9.99</option>
-                        <option value="mocking">Pride and Prejudice and Zombies - $11.99</option>
-                        <option value="mocking">The Great Gatsby - $4.99</option>
-                        <option value="mocking">Brave New World - $8.99</option>
-                        <option value="mocking">1984 - $6.99</option>
-                        <option value="mocking">Jane Eyre - $10.99</option>
-                        <option value="mocking">Crime and Punishment - $8.99</option>
-                        <option value="mocking">Call of the Wild - $8.99</option>
-                        <option value="mocking">Moby Dick - 9.99</option>
-                        <option value="mocking">The Lion, the Witch, and the Wardrobe - 9.99</option>
-                        <option value="mocking">Frankenstein - 9.99</option>
-                        <option value="mocking">The Brave Little Toaster - 9.99</option>
+                        <option value="empty"></option>
+                        <option value="mockingbird">To Kill a Mockingbird - $10.99</option>
+                        <option value="pride">Pride and Prejudice - $9.99</option>
+                        <option value="zombie">Pride and Prejudice and Zombies - $11.99</option>
+                        <option value="gatsby">The Great Gatsby - $4.99</option>
+                        <option value="world">Brave New World - $8.99</option>
+                        <option value="1984">1984 - $6.99</option>
+                        <option value="jane">Jane Eyre - $10.99</option>
+                        <option value="crime">Crime and Punishment - $8.99</option>
+                        <option value="call">Call of the Wild - $8.99</option>
+                        <option value="moby">Moby Dick - 9.99</option>
+                        <option value="lion">The Lion, the Witch, and the Wardrobe - 9.99</option>
+                        <option value="monster">Frankenstein - 9.99</option>
+                        <option value="toaster">The Brave Little Toaster - 9.99</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3 col-6">
@@ -53,9 +53,21 @@
                     <input type="number" class="form-control" id="subtotal">
                 </div>
             </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-success">Place Order</button>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="location">Location</label>
+                    <select class="form-control" name="location" id="location">
+                        <option value="empty"></option>
+                        <option value="slithy">The Slithy Toves - New York</option>
+                        <option value="vorpal">The Vorpal Blade - St. Louis</option>
+                        <option value="tumtum">The Tumtum Tree - Miami</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Place Order</button>
+                </div>
             </div>
         </form>
     </div>
