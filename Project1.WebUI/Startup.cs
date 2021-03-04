@@ -26,6 +26,12 @@ namespace Project1.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = File.ReadAllText("C:\revature\st-conn.txt");
+
+            services.AddDbContext<Project1Context>(options =>
+            {
+                options.UseSqlServer("");
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

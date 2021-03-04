@@ -2,7 +2,7 @@ using System;
 
 namespace Project1.WebUI.Models
 {
-    public class Customers
+    public class Customer
     {
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
