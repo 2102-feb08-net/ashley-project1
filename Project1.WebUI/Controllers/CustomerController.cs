@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Project1.BL;
+using Project1.Library;
 
 namespace EmailApp.WebUI.Controllers
 {
