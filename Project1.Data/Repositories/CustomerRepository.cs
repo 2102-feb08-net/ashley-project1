@@ -31,7 +31,7 @@ namespace Project1.WebUI.Data
         public List<BL.Customer> GetCustomerByName(string partOfName)
         {
             List<BL.Customer> list = new List<BL.Customer>();
-            var results = _dbContext.Customers.Where(x => x.FirstName.ToLower().Contains(partOfName) || x.LastName.ToLower().Contains(partOfName));
+            var results = _dbContext.BL.Customer.Where(x => x.FirstName.ToLower().Contains(partOfName) || x.LastName.ToLower().Contains(partOfName));
 
 
             foreach (var result in results)

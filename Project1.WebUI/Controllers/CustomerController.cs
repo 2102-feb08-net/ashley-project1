@@ -4,49 +4,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Project1.Library;
+using Project1.BL;
 
-namespace EmailApp.WebUI.Controllers
+namespace Project1.WebUI.Controllers
 {
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        // each method here ("action method") will respond to one type of AJAX request
-        // from the app, and optionally return an object (will be serialized to
-        // json by ASP.NET and System.Text.Json in the response body)
+        private readonly Project1.BL.ICustomerRepository _customerRepository;
 
-        private readonly CustomerRepository _customerRepository;
-
-        public CustomerController()
+        public CustomerController(ICustomerRepository customerRepository)
         {
-            _customerRepository = new CustomerRepository();
+            _customerRepository = customerRepository;
         }
 
-        // distinguish what HTTP method (GET, POST, etc.) this will accept, and, what URL
-        [HttpGet("api/inbox")]
-        public IEnumerable<Message> GetInbox()
+        [HttpPost("api/create-customer")]
+        public void CreateCustomer(BL.Customer customer)
         {
-            return _messageRepository.List();
+            _customerRepository.CreateCustomer(customer);
         }
 
-        [HttpGet("api/message/{id}")]
-        public Message GetMessage(int id)
+        [HttpGet("api/customer-search")]
+        public List<BL.Customer> GetCustomerByName(string partOfName)
         {
-            return _messageRepository.Get(id);
-        }
+            List<BL.Customer> list = new List<BL.Customer>();
+            var results = _dbContext.Customers.Where(x => x.FirstName.ToLower().Contains(partOfName) || x.LastName.ToLower().Contains(partOfName));
 
-        // "model binding" (useful feature of ASP.NET)
-        // will deserialize data in the request body (JSON text)
-        // into the action method parameters.
-        [HttpPost("api/send-message")]
-        public void SendMessage(Message message)
-        {
-            _messageRepository.Create(message);
-        }
 
-        [NonAction]
-        public void HelperMethod()
-        {
+            foreach (var result in results)
+            {
+                list.Add(new BL.Customer(result.FirstName, result.LastName, result.Phone, result.Email, result.Zip, result.CustomerId));
+                Console.WriteLine($"{result.CustomerId}\t{result.FirstName} {result.LastName}\t{result.Phone}\t{result.Email}\t{result.Zip}");
+            }
+            return list;
         }
     }
 }
