@@ -24,7 +24,7 @@ namespace Project1.WebUI.Controllers
             _customerRepository.CreateCustomer(customer);
         }
 
-        [HttpGet("api/customer-search")]
+        [HttpGet("api/customer-name-search")]
         public List<BL.Customer> GetCustomerByName(string partOfName)
         {
             List<BL.Customer> list = new List<BL.Customer>();
@@ -37,6 +37,12 @@ namespace Project1.WebUI.Controllers
                 Console.WriteLine($"{result.CustomerId}\t{result.FirstName} {result.LastName}\t{result.Phone}\t{result.Email}\t{result.Zip}");
             }
             return list;
+        }
+
+        [HttpGet("api/customer-id-search")]
+        public BL.Customer GetCustomerById(int id)
+        {
+            return _customerRepository.GetCustomerById(id);
         }
     }
 }
