@@ -21,5 +21,14 @@ namespace Project1.BL
             Email = email;
             Zip = zip;
         }
+
+        public Customer(string firstName, string lastName, string phone, string email, string zip)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Phone = phone;
+            Email = email;
+            Zip = zip;
+        }
     }
 }

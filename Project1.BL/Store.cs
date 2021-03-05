@@ -3,18 +3,16 @@ namespace Project1.BL
     public class Store
     {
         public int StoreId { get; private set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
+        public string StoreName { get; set; }
 
-        public Product()
+        public Store()
         {   
         }
 
-        public Product(int productId, string productName, decimal unitPrice)
+        public Store(int storeId, string storeName)
         {
-            ProductId = customerId;
-            ProductName = firstName;
-            UnitPrice = lastName;
+            StoreId = storeId;
+            StoreName = storeName;
         }
     }
 }

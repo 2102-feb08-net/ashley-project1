@@ -1,4 +1,8 @@
 using Project1.BL;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
 
 namespace Project1.Data
 {
@@ -13,11 +17,9 @@ namespace Project1.Data
 
         public BL.Product GetProductById(int id)
         {
-            var result = _context.Customers.Where(c => c.CustomerId == id).First();
-            Library.Models.CustomerModel customer = 
-                new Library.Models.CustomerModel(result.FirstName, result.LastName, result.Phone, result.Email, result.Zip, result.CustomerId);
-            Console.WriteLine($"\n\nCustomer ID: {customer.CustomerId}\nName: {customer.FirstName} {customer.LastName}\nPhone: {customer.Phone}\nEmail: {customer.Email}\nZip: {customer.Zip}");
-            return customer;
+            var product = _context.Products.Where(p => p.ProductId == id).First();
+            BL.Product searched = new BL.Product(product.ProductId, product.ProductName, product.UnitPrice);
+            return searched;
         }
     }
 }

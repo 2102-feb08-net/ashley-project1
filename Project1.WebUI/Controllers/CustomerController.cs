@@ -18,28 +18,19 @@ namespace Project1.WebUI.Controllers
             _customerRepository = customerRepository;
         }
 
-        [HttpPost("api/create-customer")]
+        [HttpPost("api/customer")]
         public void CreateCustomer(BL.Customer customer)
         {
             _customerRepository.CreateCustomer(customer);
         }
 
-        [HttpGet("api/customer-name-search")]
+        [HttpGet("api/customer/{partOfName}")]
         public List<BL.Customer> GetCustomerByName(string partOfName)
         {
-            List<BL.Customer> list = new List<BL.Customer>();
-            var results = _dbContext.Customers.Where(x => x.FirstName.ToLower().Contains(partOfName) || x.LastName.ToLower().Contains(partOfName));
-
-
-            foreach (var result in results)
-            {
-                list.Add(new BL.Customer(result.FirstName, result.LastName, result.Phone, result.Email, result.Zip, result.CustomerId));
-                Console.WriteLine($"{result.CustomerId}\t{result.FirstName} {result.LastName}\t{result.Phone}\t{result.Email}\t{result.Zip}");
-            }
-            return list;
+            return _customerRepository.GetCustomerByName(partOfName);
         }
 
-        [HttpGet("api/customer-id-search")]
+        [HttpGet("api/customer/{id}")]
         public BL.Customer GetCustomerById(int id)
         {
             return _customerRepository.GetCustomerById(id);

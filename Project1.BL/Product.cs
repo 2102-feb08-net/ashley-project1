@@ -12,9 +12,9 @@ namespace Project1.BL
 
         public Product(int productId, string productName, decimal unitPrice)
         {
-            ProductId = customerId;
-            ProductName = firstName;
-            UnitPrice = lastName;
+            ProductId = productId;
+            ProductName = productName;
+            UnitPrice = unitPrice;
         }
     }
 }

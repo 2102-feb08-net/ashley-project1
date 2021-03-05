@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Project1.Library
+namespace Project1.Data
 {
     public partial class Project1Context : DbContext
     {
