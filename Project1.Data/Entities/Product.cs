@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Project1.Library
+namespace Project1.Data
 {
     public partial class Product
     {
